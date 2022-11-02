@@ -150,3 +150,4 @@ $ nohup sh mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-sync/broker
 :::tip
 以上 Broker 与 Slave 配对是通过指定相同的 BrokerName 参数来配对，Master 的 BrokerId 必须是 0，Slave 的 BrokerId 必须是大于 0 的数。另外一个 Master 下面可以挂载多个 Slave，同一 Master 下的多个 Slave 通过指定不同的 BrokerId 来区分。$ROCKETMQ_HOME指的RocketMQ安装目录，需要用户自己设置此环境变量。
 :::
+> When docker is used to deploy brokers, the list of brokers pulled by namesrv is the internal ip address by default. When only public ip addresses are provided externally, problems will occur: Under Caused by: org. Apache. Rocketmq. Remoting. Exception. RemotingConnectException: connect to 172.17.42.1:10911 (IP) network failed.
